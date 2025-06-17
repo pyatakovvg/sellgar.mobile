@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "@library/kit",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Storybook",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "dependencies": {
+    "react": "19.0.0",
+    "react-native": "0.79.3"
+  },
+  "devDependencies": {
+    "@react-native/typescript-config": "0.79.3",
+    "@types/react": "19.0.12",
+    "react-native-advanced-input-mask": "1.4.1",
+    "typescript": "5.8.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "root",
+  "license": "UNLICENSED",
+  "scripts": {
+    "update": "yarn upgrade-interactive",
+    "format": "prettier --write \"**/src/**/*.{ts,tsx}\" \"**/test/**/*.ts\" \"**/prisma/**/*.ts\"",
+    "lint": "eslint \"**/{src,test}/**/*.{ts,tsx}\" --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.28.0",
+    "@types/node": "22.15.30",
+    "@typescript-eslint/eslint-plugin": "8.33.1",
+    "@typescript-eslint/parser": "8.33.1",
+    "eslint": "9.28.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-plugin-prettier": "5.4.1",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  },
+  "workspaces": [
+    "clients/*",
+    "helpers/*",
+    "library/*",
+    "screens/*",
+    "utils/*",
+    "widgets/*",
+    "layouts/*"
+  ],
+  "engines": {
+    "node": "^22"
+  },
+  "packageManager": "yarn@3.6.1"
+}

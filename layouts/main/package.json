@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "@layout/main",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Storybook",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "dependencies": {
+    "@library/kit": "0.0.1",
+    "react": "19.0.0",
+    "react-native": "0.79.3",
+    "react-native-safe-area-context": "5.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.12",
+    "typescript": "5.8.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

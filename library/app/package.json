@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "@library/app",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "application",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "dependencies": {
+    "@library/domain": "0.0.1",
+    "@react-navigation/bottom-tabs": "7.3.14",
+    "@react-navigation/native-stack": "7.3.14",
+    "inversify": "7.5.2",
+    "mobx": "6.13.7",
+    "mobx-react": "9.2.0",
+    "react": "19.0.0",
+    "react-native-error-boundary": "2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.12",
+    "typescript": "5.8.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
