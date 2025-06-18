@@ -82,7 +82,9 @@ export class PrivateRouter {
 
       await screen.loadModule();
 
-      screens[screen.name] = () => <Wrapper screen={screen} />;
+      screens[screen.name] = {
+        screen: () => <Wrapper screen={screen} />,
+      };
     }
 
     return createNativeStackNavigator({
