@@ -12,11 +12,11 @@ import s from './default.styles.ts';
 
 export class ClassModule {
   constructor(container: Container) {
-    container.loadSync(containerModule);
+    container.load(containerModule);
   }
 
   destructor(container: Container) {
-    container.unloadSync(containerModule);
+    container.unload(containerModule);
   }
 
   render({ container }: { container: Container }) {

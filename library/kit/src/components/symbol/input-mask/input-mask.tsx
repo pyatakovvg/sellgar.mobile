@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextProps, NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
+import { View, TextProps } from 'react-native';
 import { MaskedTextInput, MaskedTextInputProps } from 'react-native-advanced-input-mask';
 
 import { context } from '../../../theme/theme.context.ts';
@@ -39,12 +39,12 @@ export const InputMask: React.FC<IProps> = React.forwardRef(
       }
     }, [disabled]);
 
-    const handleFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const handleFocus = (event: Parameters<NonNullable<IProps['onFocus']>>[0]) => {
       setFocused(true);
       props.onFocus && props.onFocus(event);
     };
 
-    const handleBlur = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const handleBlur = (event: Parameters<NonNullable<IProps['onBlur']>>[0]) => {
       setFocused(false);
       props.onBlur && props.onBlur(event);
     };

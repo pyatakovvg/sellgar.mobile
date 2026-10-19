@@ -12,7 +12,7 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = (props) => {
   });
 
   React.useEffect(() => {
-    const listener = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
+    const listener: Parameters<typeof Appearance.addChangeListener>[0] = ({ colorScheme }) => {
       if (colorScheme === 'dark' || colorScheme === 'light') {
         setColorScheme(colorScheme);
       } else {
@@ -39,10 +39,7 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = (props) => {
         toggleColorScheme,
       }}
     >
-      <StatusBar
-        barStyle={colorScheme === 'light' ? 'dark-content' : 'light-content'}
-        backgroundColor={theme.colors.background.surface.neutral}
-      />
+      <StatusBar barStyle={colorScheme === 'light' ? 'dark-content' : 'light-content'} />
       {props.children}
     </Provider>
   );

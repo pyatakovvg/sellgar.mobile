@@ -25,8 +25,8 @@ export class HttpClient implements HttpClientInterface {
   ) {
     this._axios = this.getInstance();
 
-    this._axios.interceptors.request.use(this._requestFulfilled, this._rejected);
-    this._axios.interceptors.response.use(this._responseFulfilled, this._rejected);
+    this._axios.interceptors.request.use(this._requestFulfilled.bind(this), this._rejected.bind(this));
+    this._axios.interceptors.response.use(undefined, this._rejected.bind(this));
   }
 
   private getInstance(): AxiosInstance {
@@ -52,10 +52,6 @@ export class HttpClient implements HttpClientInterface {
     }
 
     return config;
-  }
-
-  private _responseFulfilled(response: AxiosResponse) {
-    return response.data;
   }
 
   private async _rejected(error: any) {
@@ -114,26 +110,26 @@ export class HttpClient implements HttpClientInterface {
   }
 
   get<T = any, R = T, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
-    return this._axios.get<T, R, D>(url, config);
+    return this._axios.get<R, AxiosResponse<R>, D>(url, config).then((response) => response.data);
   }
 
   post<T = any, R = T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
-    return this._axios.post<T, R, D>(url, data, config);
+    return this._axios.post<R, AxiosResponse<R>, D>(url, data, config).then((response) => response.data);
   }
 
   put<T = any, R = T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
-    return this._axios.put<T, R, D>(url, data, config);
+    return this._axios.put<R, AxiosResponse<R>, D>(url, data, config).then((response) => response.data);
   }
 
   patch<T = any, R = T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
-    return this._axios.patch<T, R, D>(url, data, config);
+    return this._axios.patch<R, AxiosResponse<R>, D>(url, data, config).then((response) => response.data);
   }
 
   delete<T = any, R = T, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
-    return this._axios.delete<T, R, D>(url, config);
+    return this._axios.delete<R, AxiosResponse<R>, D>(url, config).then((response) => response.data);
   }
 
   send<T = any, R = T, D = any>(config: Omit<AxiosRequestConfig<D>, 'baseURL'>) {
-    return this._axios.request<T, R, D>(config);
+    return this._axios.request<R, AxiosResponse<R>, D>(config).then((response) => response.data);
   }
 }

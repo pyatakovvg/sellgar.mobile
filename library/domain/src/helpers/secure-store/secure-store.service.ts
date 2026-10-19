@@ -1,14 +1,14 @@
 import { injectable } from 'inversify';
-import { MMKV } from 'react-native-mmkv';
+import { createMMKV } from 'react-native-mmkv';
 
 import { SecureStoreServiceInterface } from './secure-store-service.interface.ts';
 
 @injectable()
 export class SecureStoreService implements SecureStoreServiceInterface {
-  private readonly storage = new MMKV();
+  private readonly storage = createMMKV();
 
   removeData(key: string) {
-    this.storage.delete(key);
+    this.storage.remove(key);
   }
 
   getData(key: string) {

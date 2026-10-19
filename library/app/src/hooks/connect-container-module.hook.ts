@@ -8,12 +8,16 @@ export const useConnectContainerModule = (module: ContainerModule) => {
   const { container } = useApp();
   const [isLoaded, setLoaded] = React.useState(false);
 
-  useFocusEffect(() => {
-    container.load(module).then(() => setLoaded(true));
-    return () => {
-      container.unload(module).then(() => setLoaded(false));
-    };
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      container.load(module);
+      setLoaded(true);
+      return () => {
+        container.unload(module);
+        setLoaded(false);
+      };
+    }, [container, module]),
+  );
 
   if (!isLoaded) {
     return null;

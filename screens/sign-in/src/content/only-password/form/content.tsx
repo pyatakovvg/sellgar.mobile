@@ -43,7 +43,7 @@ export const Content = () => {
           <Form />
         </View>
         <View style={s.control}>
-          <Button target={'info'} onPress={handleSignIn}>
+          <Button target={'info'} onPress={() => void handleSignIn()}>
             Авторизоваться
           </Button>
         </View>

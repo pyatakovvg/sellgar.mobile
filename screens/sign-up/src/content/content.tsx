@@ -41,7 +41,7 @@ export const Content = () => {
           <Form />
         </View>
         <View style={s.control}>
-          <Button target={'info'} onPress={handleSignUp}>
+          <Button target={'info'} onPress={() => void handleSignUp()}>
             Зарегистрировать
           </Button>
         </View>
